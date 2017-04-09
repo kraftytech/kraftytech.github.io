@@ -1,0 +1,104 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+	
+        google.charts.load('current', {
+            packages: ['map']
+        });
+        google.charts.setOnLoadCallback(drawMap);
+
+        function drawMap() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Lat');
+            data.addColumn('number', 'Long');
+            data.addColumn('string', 'Name');
+            data.addColumn('string', 'Marker')
+
+            data.addRows([
+				<!-- pluvions GSM RFIDControl -->
+                [-23.521997, -46.695152, 'PR - LAPA', 'pink'],
+				<!-- pluvions offline -->
+                [-23.565417, -46.738358, 'IPEN', 'pink'],
+                <!-- pluvions online -->
+				[-23.5473174,-46.6514257,'Mackenzie','pink'],
+				[-23.550062,-46.63869,'Red Bull Station','pink'],
+				[-23.52163,-46.725485,'DMP Sistemas','pink'],
+				[-23.559330, -46.733566,'IAG USP','pink'],
+				[-23.538281,-46.727211,'Av. Queiroz Filho','pink'],
+				[-23.571166,-46.650175,'Campus São Paulo - Google Space','pink'],
+				[-23.528235,-46.733249,'Imperatriz','pink'],
+				[-23.502389,-46.761357,'UBS Vila Piaui','pink'],
+				[-23.520845,-46.701703,'Rua Trajano','pink'],
+				[-23.651211,-46.622387,'IAG Cientec','pink'],
+				[-23.538272,-46.757057,'Rua Dr. Milton','pink'],
+				[-23.521489,-46.724468,'Rua Guaipa','pink'],
+				[-23.51266,-46.794101,'Rua Rio Xingu','pink'],
+				[-23.540453,-46.693156,'PRAÇA B.SÃO BORJA','pink'],
+				[-23.539581,-46.718342,'Madis','pink'],
+				[-23.544205,-46.696453,'Praça Cazuza','pink'],
+				[-23.644909,-46.713669,'Imashop','pink'],
+				[-23.529885,-46.743612,'DIMEP','pink'],
+				[-23.561464,-46.686116,'We Fab','pink'],
+				
+				[-23.539492,-46.690585,'Rua havai','gray'],
+				[-23.531464,-46.691386,'Miranda de Azevedo prox. Pompeia','gray'],
+				[-23.527593,-46.683061,'Venancio Aires','gray'],
+				[-23.455221,-46.750239,'Rua carbono','gray'],
+				[-23.493676,-46.755964,'Piscinão Anhanguera','gray'],
+				[-23.506530,-46.778073,'Rua recife OSASCO / Rochdale','gray'],
+				[-23.521439,-46.776637,'Joao Kauffman c/ Nacoes Unidas','gray'],
+				[-23.536320,-46.736236,'Ceagesp / Melancia e Abacaxi','gray'],
+				[-23.518683,-46.736835,'PQ. Villas Boas','gray'],
+				[-23.542907,-46.744376,'Relogio do Jaguaré','gray'],
+				[-23.547220,-46.754068,'Rua Caetanopolis','gray'],
+				[-23.524852,-46.702217,'Rua Francisco Alves c/ Jereoaquara','gray'],
+				[-23.538498,-46.703629,'Sepetiba com Abi','gray'],
+				[-23.520505,-46.688275,'Santa Marina c/ Comendador Souza','gray'],
+				[-23.519984,-46.681263,'Jardim das Perdizes (entre Nicolas Boer e Jose nelo Lorenzon)','gray'],
+				[-23.517692,-46.670132,'Thomas Edison c/ Moises Kahan','gray'],
+				[-23.529081,-46.665874,'Memorial da America Latina OU Uninove','gray'],
+				[-23.529941,-46.677388,'Praça Marrey Junior (Estádio Allianz)','gray'],
+				[-23.538489,-46.668973,'Joao Ramalho e Cardoso de Almeida','gray'],
+				[-23.548033,-46.67799 ,'Rua Pombal c/ Sumaré','gray'],
+				[-23.517573,-46.697368,'Central Parque LAPA','gray'],
+				[-23.520126,-46.711737,'Raimundo Pereira de Magalhaes com Diogo Ortiz','gray'],
+				[-23.509272,-46.747715,'Corrego Cintra Cabeceira','gray'],
+				[-23.516464,-46.739078,'Corrego Cintra FOZ','gray'],
+				[-23.541910,-46.673484,'Monte Alegre','gray'],
+				[-23.533211,-46.679864,'Rua Caiowa com Bartira','gray']
+            ]);
+            var url = 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/32/';
+
+            var options = {
+                zoomLevel: 12,
+                showTooltip: true,
+                showInfoWindow: true,
+                useMapTypeControl: true,
+                icons: {
+                    pink: {
+                        normal: url + 'Map-Marker-Marker-Outside-Pink-icon.png',
+                        selected: url + 'Map-Marker-Ball-Right-Azure-icon.png'
+                    },
+                    gray: {
+                        normal: url + 'Map-Marker-Marker-Inside-Azure-icon.png',
+                        selected: url + 'Map-Marker-Push-Pin-1-Right-Chartreuse-icon.png'
+                    }
+                }
+            };
+            var map = new google.visualization.Map(document.getElementById('map_div'));
+
+            map.draw(data, options);
+        }
+    </script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAZ5T0RKwda972GhR8P5a6tYKuVqHI48g&callback=initMap"
+    async defer></script>
+</head>
+
+<body>
+    <div id="map_div" style="height: 600px; width: 1200px"></div>
+</body>
+
+</html>
